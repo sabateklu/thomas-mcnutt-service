@@ -1,5 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    };
+  }
+
+  render() {
+    return (
+      <div>hello</div>
+    );
+  }
+}
+export default App;
 
 ReactDOM.render(<div><App /></div>, document.getElementById('map'));

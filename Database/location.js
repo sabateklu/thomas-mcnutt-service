@@ -5,15 +5,18 @@ mongoose.Promise = global.Promise;
 const locationSchema = new mongoose.Schema({
   Name: String,
   coords: {
-    lat: Number,
-    long: Number,
+    lat: { type: Number },
+    long: { type: Number },
   },
-  ratings: Array,
+  ratings: {
+    avg: { type: Number },
+    total: { type: Number },
+  },
   address: {
     street: String,
     city: String,
     country: String,
-    zip: Number,
+    zip: String,
   },
 });
 
@@ -21,13 +24,15 @@ const location = mongoose.model('location', locationSchema);
 
 module.exports = {
 
-  find(req, res) {
+  Locations: location,
+
+  find: (req, res) => {
     location.find({}, (err, result) => {
       if (err) { res.send(err); } else res.send(result);
     });
   },
 
-  create(req, res) {
+  create: (req, res) => {
     const obj = {
       name: req.body.name,
       coords: [req.body.ratings],
@@ -38,7 +43,7 @@ module.exports = {
     });
   },
 
-  update(req, res) {
+  update: (req, res) => {
     const id = { _id: req.params.id };
     const obj = {
       name: req.body.name,
@@ -50,7 +55,7 @@ module.exports = {
     });
   },
 
-  delete(req, res) {
+  delete: (req, res) => {
     const id = { _id: req.params.id };
     location.deleteOne({ _id: id }, (err, result) => {
       if (err) { res.send(err); } else res.send(result);

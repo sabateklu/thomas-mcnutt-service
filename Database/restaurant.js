@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;
 
 const restaurantSchema = new mongoose.Schema({
   name: String,
-  ratings: Array,
+  ratings: [],
   imageUrl: String,
 });
 
@@ -12,16 +12,21 @@ const restaurant = mongoose.model('restaurant', restaurantSchema);
 
 module.exports = {
 
-  find(req, res) {
+  Restaurants: restaurant,
+
+  find: (req, res) => {
     restaurant.find({}, (err, result) => {
       if (err) { res.send(err); } else res.send(result);
     });
   },
 
-  create(req, res) {
+  create: (req, res) => {
     const obj = {
       name: req.body.name,
-      ratings: [req.body.ratings],
+      ratings: {
+        avg: { type: Number },
+        total: { type: Number },
+      },
       imageUrl: req.body.imageUrl,
     };
     restaurant.create(obj, (err, result) => {
@@ -29,7 +34,7 @@ module.exports = {
     });
   },
 
-  update(req, res) {
+  update: (req, res) => {
     const id = { _id: req.params.id };
     const obj = {
       name: req.body.name,
@@ -41,7 +46,7 @@ module.exports = {
     });
   },
 
-  delete(req, res) {
+  delete: (req, res) => {
     const id = { _id: req.params.id };
     restaurant.deleteOne({ _id: id }, (err, result) => {
       if (err) { res.send(err); } else res.send(result);
