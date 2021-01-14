@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client/app.jsx', // this is our entry for dependency graph
+  entry: './client/src/index.jsx', // this is our entry for dependency graph
   output: {
     filename: 'main.js', // the name of our bundle, include this in our final index.html <script>
-    path: path.resolve(__dirname, 'public'), // this is where we will put our final bundle
+    path: path.resolve(__dirname, './client/dist'), // this is where we will put our final bundle
   },
   devtool: 'inline-source-map', // this is for debugging
   devServer: {
