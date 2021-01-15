@@ -1,8 +1,8 @@
 const Faker = require('faker');
 const mongoose = require('mongoose');
-const Locations = require('./location.js');
-const Restaurants = require('./restaurant.js');
-const Attractions = require('./attraction.js');
+const { Locations } = require('./location.js');
+const { Restaurants } = require('./restaurant.js');
+const { Attractions } = require('./attraction.js');
 // eslint-disable-next-line no-unused-vars
 
 const countries = [
@@ -69,10 +69,10 @@ const create100Attractions = () => {
 };
 
 const insertSampleRestaurants = () => {
-  Restaurants.Restaurants.find()
+  Restaurants.find()
     .then((result) => {
       if (result.length < 100) {
-        Restaurants.Restaurants.create(sampleRestaurants)
+        Restaurants.create(sampleRestaurants)
           .then(() => mongoose.disconnect());
         console.log('Restaurants seeded');
       } else {
@@ -82,10 +82,10 @@ const insertSampleRestaurants = () => {
 };
 
 const insertSampleLocations = () => {
-  Locations.Locations.find()
+  Locations.find()
     .then((result) => {
       if (result.length < 100) {
-        Locations.Locations.create(sampleLocations)
+        Locations.create(sampleLocations)
           .then(() => insertSampleRestaurants());
         console.log('Locations seeded');
       } else {
@@ -95,10 +95,10 @@ const insertSampleLocations = () => {
 };
 
 const insertSampleAttractions = () => {
-  Attractions.Attractions.find()
+  Attractions.find()
     .then((result) => {
       if (result.length < 100) {
-        Attractions.Attractions.create(sampleAttractions)
+        Attractions.create(sampleAttractions)
           .then(() => insertSampleLocations());
         console.log('Attractions seeded');
       } else {
