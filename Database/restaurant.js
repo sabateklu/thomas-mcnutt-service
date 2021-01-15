@@ -4,7 +4,10 @@ mongoose.Promise = global.Promise;
 
 const restaurantSchema = new mongoose.Schema({
   name: String,
-  ratings: [],
+  ratings: {
+    avg: { type: Number },
+    total: { type: Number },
+  },
   imageUrl: String,
 });
 

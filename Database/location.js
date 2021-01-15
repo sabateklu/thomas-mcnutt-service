@@ -35,8 +35,21 @@ module.exports = {
   create: (req, res) => {
     const obj = {
       name: req.body.name,
-      coords: [req.body.ratings],
-      imageUrl: req.body.imageUrl,
+      coords: {
+        lat: req.body.coords.lat,
+        long: req.body.coords.long,
+      },
+      ratings: {
+        avg: req.body.ratings.avg,
+        total: req.body.ratings.total,
+      },
+      address: {
+        street: req.body.address.street,
+        city: req.body.address.city,
+        country: req.body.address.country,
+        zip: req.body.address.zip,
+      },
+
     };
     location.create(obj, (err, result) => {
       if (err) { res.send(err); } else res.send(result);
