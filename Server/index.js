@@ -1,14 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// eslint-disable-next-line no-unused-vars
 const db = require('../Database/index.js');
+// eslint-disable-next-line no-unused-vars
 
 const Locations = require('../Database/location.js');
 const Restaurants = require('../Database/restaurant.js');
 const Attractions = require('../Database/attraction.js');
 
 const app = express();
-const PORT = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -57,8 +56,4 @@ app.delete('/api/attraction:id', (req, res) => {
   Attractions.delete(req, res);
 });
 
-app.listen(PORT, (err) => {
-  if (err) { console.log('Error starting server'); } else {
-    console.log(`Listening on port ${PORT}`);
-  }
-});
+module.exports = app;
