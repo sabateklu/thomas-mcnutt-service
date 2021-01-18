@@ -17,7 +17,7 @@
     "build": "npx webpack --config webpack.config.js --watch",
     "hot": "webpack serve --open",
     "watch": "webpack -d -w",
-    "db:seed": "node database/seed.js",
+    "seed": "node database/seed.js",
     "lint": "eslint . --ignore-path ./.eslintignore --fix"
   },
   "repository": {
