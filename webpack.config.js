@@ -2,14 +2,14 @@ const path = require('path');
 
 module.exports = {
   target: 'node',
-  entry: './client/src/index.jsx',
+  entry: './client/src',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, './client/dist'),
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './public', // this is for hot-reloading, check npm run hot in package.json setup
+    contentBase: './Client/dist', // this is for hot-reloading, check npm run hot in package.json setup
     // can also specify port: 8080
   },
   module: {
@@ -21,10 +21,13 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-react', '@babel/preset-env'],
-          }
-        }
+          },
+        },
       },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   resolve: {

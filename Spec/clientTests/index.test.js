@@ -3,7 +3,7 @@ import Enzyme, { shallow, mount } from 'enzyme';
 // import {
 //   describe, beforeAll, afterAll, expect, test, it,
 // } from 'jest';
-import App from '../../Client/src/components/App.jsx';
+import App from '../../Client/src/components/App';
 
 describe('App component', () => {
   test('Renders', () => {
