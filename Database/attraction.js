@@ -21,7 +21,7 @@ module.exports = {
 
   find: (req, res) => {
     attraction.find({}, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+      if (err) { res.status(400).send(err); } else res.status(200).send(result);
     });
   },
 

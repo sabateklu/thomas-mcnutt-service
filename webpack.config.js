@@ -1,12 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client/src/index.jsx', // this is our entry for dependency graph
+  target: 'node',
+  entry: './client/src/index.jsx',
   output: {
-    filename: 'main.js', // the name of our bundle, include this in our final index.html <script>
-    path: path.resolve(__dirname, './client/dist'), // this is where we will put our final bundle
+    filename: 'main.js',
+    path: path.resolve(__dirname, './client/dist'),
   },
-  devtool: 'inline-source-map', // this is for debugging
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: './public', // this is for hot-reloading, check npm run hot in package.json setup
     // can also specify port: 8080
@@ -16,7 +17,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react', '@babel/preset-env'],
+          }
+        }
       },
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
     ],
