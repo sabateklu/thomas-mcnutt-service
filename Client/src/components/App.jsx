@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 import Reviews from './ReviewsList';
 import Map from './Map';
 import NearbyInfo from './NearbyInfo';
@@ -8,6 +9,10 @@ class App extends React.Component {
     super(props);
     this.state = {
     };
+  }
+
+  componentDidMount() {
+
   }
 
   render() {
