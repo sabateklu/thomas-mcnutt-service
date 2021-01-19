@@ -1,2 +1,1 @@
-# thomas-mcnutt-service
-Thomas' service repo for the FEC
+Trip Advisor Map Component

@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../Database/index.js');
 // eslint-disable-next-line no-unused-vars
+const db = require('../Database/index.js');
 
 const Locations = require('../Database/location.js');
 const Restaurants = require('../Database/restaurant.js');
