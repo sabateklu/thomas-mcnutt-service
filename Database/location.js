@@ -36,7 +36,7 @@ module.exports = {
   Locations: location,
 
   find: (req, res) => {
-    location.find({}, (err, result) => {
+    location.findOne({}, (err, result) => {
       if (err) { res.status(400).send(err); } else res.status(200).send(result);
     });
   },

@@ -37,7 +37,7 @@ module.exports = {
   create: (req, res) => {
     const obj = {
       name: req.body.name,
-      ratings: [req.body.ratings],
+      ratings: req.body.ratings,
       imageUrl: req.body.imageUrl,
       price: req.body.price,
       description: req.body.description,
@@ -51,7 +51,7 @@ module.exports = {
     const id = { _id: req.params.id };
     const obj = {
       name: req.body.name,
-      ratings: [req.body.ratings],
+      ratings: req.body.ratings,
       imageUrl: req.body.imageUrl,
       price: req.body.price,
       description: req.body.description,

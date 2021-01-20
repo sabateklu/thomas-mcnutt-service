@@ -7,7 +7,10 @@ mongoose.Promise = global.Promise;
 
 const restaurantSchema = new mongoose.Schema({
   name: String,
-  ratings: [],
+  ratings: {
+    avg: { type: Number },
+    total: { type: Number },
+  },
   imageUrl: String,
   _id: {
     type: String,
@@ -44,7 +47,7 @@ module.exports = {
     const id = { _id: req.params.id };
     const obj = {
       name: req.body.name,
-      ratings: [req.body.ratings],
+      ratings: req.body.ratings,
       imageUrl: req.body.imageUrl,
     };
     restaurant.updateOne(id, obj, (err, result) => {
