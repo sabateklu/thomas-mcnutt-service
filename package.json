@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "jest --verbose",
-    "test:coverage": "jest --collectCoverage",
+    "test:coverage": "npx jest --coverage",
     "test:watch": "jest --verbose --watch",
     "start": "npx nodemon Server/start.js",
     "build": "npx webpack --config webpack.config.js --watch",
