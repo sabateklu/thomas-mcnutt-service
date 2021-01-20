@@ -14,12 +14,6 @@ describe('Turning Server on for tests', () => {
     dbDisc();
   });
 
-  describe('Testing Root Route', () => {
-    test('It should response the Get method when accessing the root', () => request(server)
-      .get('/')
-      .expect(200));
-  });
-
   describe('Testing Location Routes', () => {
     // Location route tests
 
