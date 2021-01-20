@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const { db } = require('./index.js');
+
+db();
 
 mongoose.Promise = global.Promise;
 
@@ -6,6 +9,12 @@ const restaurantSchema = new mongoose.Schema({
   name: String,
   ratings: [],
   imageUrl: String,
+  _id: {
+    type: String,
+    default() {
+      return new mongoose.Types.ObjectId();
+    },
+  },
 });
 
 const restaurant = mongoose.model('restaurant', restaurantSchema);
@@ -16,21 +25,18 @@ module.exports = {
 
   find: (req, res) => {
     restaurant.find({}, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+      if (err) { res.status(400).send(err); } else res.status(200).send(result);
     });
   },
 
   create: (req, res) => {
     const obj = {
       name: req.body.name,
-      ratings: {
-        avg: { type: Number },
-        total: { type: Number },
-      },
+      ratings: req.body.ratings,
       imageUrl: req.body.imageUrl,
     };
     restaurant.create(obj, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+      if (err) { res.status(400).send(err); } else res.status(201).send(result);
     });
   },
 
@@ -42,14 +48,14 @@ module.exports = {
       imageUrl: req.body.imageUrl,
     };
     restaurant.updateOne(id, obj, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+      if (err) { res.status(400).send(err); } else res.status(200).send(result);
     });
   },
 
   delete: (req, res) => {
     const id = { _id: req.params.id };
     restaurant.deleteOne({ _id: id }, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+      if (err) { res.status(400).send(err); } else res.status(200).send(result);
     });
   },
 

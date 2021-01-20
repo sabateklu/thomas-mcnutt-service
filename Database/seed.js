@@ -75,6 +75,7 @@ const insertSampleRestaurants = () => {
         Restaurants.create(sampleRestaurants)
           .then(() => mongoose.disconnect());
         console.log('Restaurants seeded');
+        console.log('Disconnected from Mongoose');
       } else {
         console.log('Restaurants already seeded');
       }
