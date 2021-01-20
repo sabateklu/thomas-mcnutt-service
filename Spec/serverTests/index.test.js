@@ -30,7 +30,7 @@ describe('Turning Server on for tests', () => {
         street: '88 Station Road',
         city: 'London',
         country: 'England',
-        zip: 'EC96',
+        zip: 'EC965',
       },
       _id: '5555',
     };
