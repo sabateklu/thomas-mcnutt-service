@@ -44,10 +44,22 @@ module.exports = {
   create: (req, res) => {
     const obj = {
       name: req.body.name,
-      coords: req.body.coords,
-      ratings: req.body.ratings,
-      imageUrl: req.body.imageUrl,
-      address: req.body.address,
+
+      coords: {
+        lat: req.body.coords.lat,
+        long: req.body.coords.long,
+      },
+      ratings: {
+        avg: req.body.ratings.avg,
+        total: req.body.ratings.total,
+      },
+      address: {
+        street: req.body.address.street,
+        city: req.body.address.city,
+        country: req.body.address.country,
+        zip: req.body.address.zip,
+      },
+
     };
     location.create(obj, (err, result) => {
       if (err) { res.status(400).send(err); } else res.status(201).send(result);
