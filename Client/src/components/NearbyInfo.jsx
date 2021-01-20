@@ -60,6 +60,7 @@ NearbyInfo.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
+    imageUrl: PropTypes.string,
   })).isRequired,
   mainAttraction: PropTypes.shape({
     description: PropTypes.string,

@@ -9,9 +9,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       location: null,
-      restaurants: [],
-      attractions: [],
-      mainAttraction: {},
+      restaurants: null,
+      attractions: null,
+      mainAttraction: null,
     };
     this.setState = this.setState.bind(this);
   }
@@ -38,6 +38,7 @@ class App extends React.Component {
     Axios.get('./api/restaurant')
       .then((result) => {
         const { data } = result;
+        console.log(data);
         this.setState({
           restaurants: data,
         });
@@ -78,6 +79,7 @@ class App extends React.Component {
                 />
               </div>
             ) }
+        {console.log(attractions)}
         {location && restaurants && mainAttraction && attractions && (
           <div className="information-panel">
             <NearbyInfo
