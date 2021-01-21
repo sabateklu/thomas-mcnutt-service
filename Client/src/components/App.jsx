@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-// import Reviews from './ReviewsList';
+import Reviews from './ReviewsList';
 import Map from './Map';
 import NearbyInfo from './NearbyInfo';
 
@@ -69,15 +69,19 @@ class App extends React.Component {
     } = this.state;
     return (
       <div>
-        {/* <div className="reviews">
-          <Reviews />
-        </div> */}
         { location
             && (
-              <div className="map">
-                <Map
-                  coords={location.coords}
-                />
+              <div>
+                <div className="reviews">
+                  <Reviews
+                    reviews={location.reviews}
+                  />
+                </div>
+                <div className="map">
+                  <Map
+                    coords={location.coords}
+                  />
+                </div>
               </div>
             ) }
         {location && restaurants && mainAttraction && attractions && (
