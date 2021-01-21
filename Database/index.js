@@ -13,7 +13,6 @@ module.exports = {
 
   dbDisc: (done) => {
     mongoose.disconnect(done)
-      .then(() => console.log('disconnected from mongoDB'))
       .catch((err) => console.log('error disconnecting from mongoDB', err));
   },
 };

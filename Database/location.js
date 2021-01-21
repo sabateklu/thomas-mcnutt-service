@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const { db } = require('./index.js');
+
+db();
 
 mongoose.Promise = global.Promise;
 
@@ -18,6 +21,16 @@ const locationSchema = new mongoose.Schema({
     country: String,
     zip: String,
   },
+  reviews: [String],
+  website: String,
+  phoneNum: String,
+  email: String,
+  _id: {
+    type: String,
+    default() {
+      return new mongoose.Types.ObjectId();
+    },
+  },
 });
 
 const location = mongoose.model('location', locationSchema);
@@ -27,8 +40,8 @@ module.exports = {
   Locations: location,
 
   find: (req, res) => {
-    location.find({}, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+    location.findOne({}, (err, result) => {
+      if (err) { res.status(400).send(err); } else res.status(200).send(result);
     });
   },
 
@@ -43,16 +56,20 @@ module.exports = {
         avg: req.body.ratings.avg,
         total: req.body.ratings.total,
       },
+      imageUrl: req.body.imageUrl,
       address: {
         street: req.body.address.street,
         city: req.body.address.city,
         country: req.body.address.country,
         zip: req.body.address.zip,
       },
-
+      reviews: req.body.reviews,
+      website: req.body.website,
+      phoneNum: req.body.phoneNum,
+      email: req.body.email,
     };
     location.create(obj, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+      if (err) { res.status(400).send(err); } else res.status(201).send(result);
     });
   },
 
@@ -60,18 +77,35 @@ module.exports = {
     const id = { _id: req.params.id };
     const obj = {
       name: req.body.name,
-      ratings: [req.body.ratings],
+      coords: {
+        lat: req.body.coords.lat,
+        long: req.body.coords.long,
+      },
+      ratings: {
+        avg: req.body.ratings.avg,
+        total: req.body.ratings.total,
+      },
       imageUrl: req.body.imageUrl,
+      address: {
+        street: req.body.address.street,
+        city: req.body.address.city,
+        country: req.body.address.country,
+        zip: req.body.address.zip,
+      },
+      reviews: req.body.reviews,
+      website: req.body.website,
+      phoneNum: req.body.phoneNum,
+      email: req.body.email,
     };
     location.updateOne(id, obj, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+      if (err) { res.status(400).send(err); } else res.status(200).send(result);
     });
   },
 
   delete: (req, res) => {
     const id = { _id: req.params.id };
     location.deleteOne({ _id: id }, (err, result) => {
-      if (err) { res.send(err); } else res.send(result);
+      if (err) { res.status(400).send(err); } else res.status(200).send(result);
     });
   },
 };

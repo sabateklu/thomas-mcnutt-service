@@ -11,13 +11,13 @@
   },
   "scripts": {
     "test": "jest --verbose",
-    "test:coverage": "jest --collectCoverage",
-    "test:watch": "jest --verbose --watch",
+    "test:coverage": "npx jest --coverage --runInBand --detectOpenHandles --verbose",
+    "test:watch": "jest --verbose --watch --runInBand --detectOpenHandles",
     "start": "npx nodemon Server/start.js",
     "build": "npx webpack --config webpack.config.js --watch",
     "hot": "webpack serve --open",
     "watch": "webpack -d -w",
-    "seed": "node database/seed.js",
+    "seed": "node Database/seed.js",
     "lint": "eslint . --ignore-path ./.eslintignore --fix"
   },
   "repository": {
@@ -46,6 +46,7 @@
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.11",
     "nodemon": "^2.0.7",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-pure-render": "^1.0.2",

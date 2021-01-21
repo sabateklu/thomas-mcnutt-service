@@ -1,27 +1,24 @@
 import React from 'react';
 import GoogleMap from 'google-map-react';
+import PropTypes from 'prop-types';
 
 import Key from '../../../googleApiKey';
 
-const Map = (props) => {
-  const mapInfo = {
-    center: [59.533, 30.337],
-    zoom: 9,
-    coords: {
-      lat: 59.533,
-      lng: 30.337,
-    },
-  };
+const Map = ({ coords }) => (
+  <div className="google-map">
+    <GoogleMap
+      bootstrapURLKeys={{ key: Key }}
+      center={[coords.lat, coords.long]}
+      zoom={9}
+    />
+  </div>
+);
 
-  return (
-    <div className="google-map">
-      <GoogleMap
-        bootstrapURLKeys={{ key: Key }}
-        center={mapInfo.center}
-        zoom={mapInfo.zoom}
-      />
-    </div>
-  );
+Map.propTypes = {
+  coords: PropTypes.shape({
+    lat: PropTypes.number,
+    long: PropTypes.number,
+  }).isRequired,
 };
 
 export default Map;

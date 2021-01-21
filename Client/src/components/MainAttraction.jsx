@@ -1,30 +1,46 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const MainAttraction = (props) => (
+const MainAttraction = ({ mainAttraction }) => (
   <div>
     <h2>Get to know the area</h2>
     <div>
-      Picture
+      <img src={mainAttraction.imageUrl} alt="A fantastic attraction" />
+    </div>
+    {mainAttraction.basicDescription}
+    <div>
+      {mainAttraction.name}
     </div>
     <div>
-      name
+      {mainAttraction.ratings.avg}
+      {' '}
+      {mainAttraction.ratings.total}
     </div>
     <div>
-      Description
+      {mainAttraction.description}
     </div>
     <div>
-      circle ratings
+      {mainAttraction.price}
     </div>
-    <div>
-      main description
-    </div>
-    <div>
-      price
-    </div>
-    <div>
+    <button type>
       more info
-    </div>
+    </button>
   </div>
 );
+
+MainAttraction.propTypes = {
+  mainAttraction: PropTypes.shape({
+    description: PropTypes.string,
+    imageUrl: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    ratings: PropTypes.shape({
+      avg: PropTypes.number,
+      total: PropTypes.number,
+    }),
+    distanceFrom: PropTypes.string,
+    basicDescription: PropTypes.string,
+  }).isRequired,
+};
 
 export default MainAttraction;
