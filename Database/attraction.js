@@ -14,6 +14,8 @@ const attractionSchema = new mongoose.Schema({
   imageUrl: String,
   price: Number,
   description: String,
+  distanceFrom: String,
+  basicDescription: String,
   _id: {
     type: String,
     default() {
@@ -41,6 +43,8 @@ module.exports = {
       imageUrl: req.body.imageUrl,
       price: req.body.price,
       description: req.body.description,
+      distanceFrom: req.body.distanceFrom,
+      basicDescription: req.body.basicDescription,
     };
     attraction.create(obj, (err, result) => {
       if (err) { res.status(400).send(err); } else res.status(201).send(result);
@@ -55,6 +59,8 @@ module.exports = {
       imageUrl: req.body.imageUrl,
       price: req.body.price,
       description: req.body.description,
+      distanceFrom: req.body.distanceFrom,
+      basicDescription: req.body.basicDescription,
     };
     attraction.updateOne(id, obj, (err, result) => {
       if (err) { res.status(400).send(err); } else res.status(200).send(result);

@@ -4,13 +4,19 @@ import PropTypes from 'prop-types';
 const Attraction = ({ attraction }) => (
   <div>
     <img src={attraction.imageUrl} alt="A fun activity" />
+    name:
+    {' '}
     {attraction.name}
+    {' '}
+    Ratings avg:
     {' '}
     {attraction.ratings.avg}
     {' '}
+    Ratings total
     {attraction.ratings.total}
+    {attraction.distanceFrom}
+    miles
     {' $'}
-    {/* Distance in time */}
     {attraction.price}
   </div>
 );
@@ -25,6 +31,8 @@ Attraction.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
+    distanceFrom: PropTypes.string,
+    basicDescription: PropTypes.string,
   }).isRequired,
 };
 export default Attraction;

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Location from './Location';
-import RestaurantsList from './Restaurants';
-import AttractionsList from './Attractions';
+import Restaurants from './Restaurants';
+import Attractions from './Attractions';
 import MainAttraction from './MainAttraction';
 
 const NearbyInfo = ({
@@ -17,12 +17,12 @@ const NearbyInfo = ({
     <div className="restaurants-attractions">
       Best Nearby
       <div>
-        <RestaurantsList
+        <Restaurants
           restaurants={restaurants}
         />
       </div>
       <div>
-        <AttractionsList
+        <Attractions
           attractions={attractions}
         />
       </div>
@@ -53,6 +53,10 @@ NearbyInfo.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
+    reviews: PropTypes.arrayOf(PropTypes.string),
+    website: PropTypes.string,
+    phoneNum: PropTypes.string,
+    email: PropTypes.string,
   }).isRequired,
   restaurants: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
@@ -61,6 +65,9 @@ NearbyInfo.propTypes = {
       total: PropTypes.number,
     }),
     imageUrl: PropTypes.string,
+    distanceFrom: PropTypes.string,
+    foodType: PropTypes.string,
+    Price: PropTypes.number,
   })).isRequired,
   mainAttraction: PropTypes.shape({
     description: PropTypes.string,
@@ -71,6 +78,8 @@ NearbyInfo.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
+    distanceFrom: PropTypes.string,
+    basicDescription: PropTypes.string,
   }).isRequired,
   attractions: PropTypes.arrayOf(PropTypes.shape({
     description: PropTypes.string,
@@ -81,6 +90,8 @@ NearbyInfo.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
+    distanceFrom: PropTypes.string,
+    basicDescription: PropTypes.string,
   })).isRequired,
 
 };

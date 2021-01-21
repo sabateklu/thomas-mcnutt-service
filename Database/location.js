@@ -21,6 +21,10 @@ const locationSchema = new mongoose.Schema({
     country: String,
     zip: String,
   },
+  reviews: [String],
+  website: String,
+  phoneNum: String,
+  email: String,
   _id: {
     type: String,
     default() {
@@ -48,6 +52,10 @@ module.exports = {
       ratings: req.body.ratings,
       imageUrl: req.body.imageUrl,
       address: req.body.address,
+      reviews: req.body.reviews,
+      website: req.body.website,
+      phoneNum: req.body.phoneNum,
+      email: req.body.email,
     };
     location.create(obj, (err, result) => {
       if (err) { res.status(400).send(err); } else res.status(201).send(result);
@@ -62,6 +70,10 @@ module.exports = {
       ratings: req.body.ratings,
       imageUrl: req.body.imageUrl,
       address: req.body.address,
+      reviews: req.body.reviews,
+      website: req.body.website,
+      phoneNum: req.body.phoneNum,
+      email: req.body.email,
     };
     location.updateOne(id, obj, (err, result) => {
       if (err) { res.status(400).send(err); } else res.status(200).send(result);

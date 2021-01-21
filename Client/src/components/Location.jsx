@@ -13,9 +13,9 @@ const Location = ({ location }) => (
       {' '}
       {location.address.zip}
     </p>
-    {/* <p>website</p>
-    <p>phone #</p>
-    <p>email</p> */}
+    <p>{location.website}</p>
+    <p>{location.phoneNum}</p>
+    <p>{location.email}</p>
   </div>
 );
 
@@ -36,6 +36,10 @@ Location.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
+    reviews: PropTypes.arrayOf(PropTypes.String),
+    website: PropTypes.string,
+    phoneNum: PropTypes.string,
+    email: PropTypes.string,
   }).isRequired,
 };
 

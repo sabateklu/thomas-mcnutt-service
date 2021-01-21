@@ -13,13 +13,17 @@ const sampleEvents = ['Camping', 'Swimming', 'Climbing', 'Observing', 'Group Cry
   'Taco Tuesday', 'Blindfolded Sprints', 'Uncomfortable Taxi Rides', 'Rat Worshiping', 'Onion Rubs', 'Rock Massages', 'Sharp Rock Massages', 'Homeless Man Rides', 'Drum Circles', 'Grave Digging'];
 const randomizer = (num) => Math.floor(Math.random() * num);
 
+const foodTypes = ['Chinese', 'Mexican', 'Greek', 'French', 'Thai', 'Spanish', 'Indian', 'English', 'German', 'American', 'Fast Food', 'Fine Dining', 'Greasy Platter'];
+
 const sampleLocations = [];
 const create100Locations = () => {
   for (let i = 0; i < 100; i += 1) {
     const rand = randomizer(countries.length);
+    const reviewArray = [Faker.lorem.paragraph(), Faker.lorem.paragraph(), Faker.lorem.paragraph()];
     // Location data
+    const name = countries[rand][0];
     sampleLocations.push({
-      Name: countries[rand][0],
+      Name: name,
       coords: {
         lat: countries[rand][2],
         long: countries[rand][3],
@@ -30,10 +34,14 @@ const create100Locations = () => {
       },
       address: {
         street: Faker.address.streetName(),
-        city: countries[rand][0],
+        city: name,
         country: countries[rand][1],
         zip: Faker.address.zipCode(),
       },
+      reviews: reviewArray,
+      website: `www.${name}.gov`,
+      phoneNum: Faker.phone.phoneNumber(),
+      email: `${name}@gmail.com`,
     });
   }
 };
@@ -48,15 +56,22 @@ const create100Restaurants = () => {
         total: randomizer(1000),
       },
       imageUrl: Faker.image.imageUrl(),
+      distanceFrom: `0.${randomizer(9)}`,
+      foodType: foodTypes[randomizer(foodTypes.length)],
+      price: randomizer(5),
     });
   }
 };
+
+// distanceFrom: Number,
+// foodType: String,
+// Price: Number,
 
 const sampleAttractions = [];
 const create100Attractions = () => {
   for (let i = 0; i < 100; i += 1) {
     sampleAttractions.push({
-      name: sampleEvents[randomizer(sampleEvents.length)],
+      name: Faker.company.companyName(),
       ratings: {
         avg: randomizer(5),
         total: randomizer(1000),
@@ -64,6 +79,8 @@ const create100Attractions = () => {
       imageUrl: Faker.image.imageUrl(),
       description: Faker.lorem.paragraph(),
       price: randomizer(200, 0),
+      distanceFrom: `0.${randomizer(9)}`,
+      basicDescription: sampleEvents[randomizer(sampleEvents.length)],
     });
   }
 };

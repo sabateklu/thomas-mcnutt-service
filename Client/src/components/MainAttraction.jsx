@@ -7,12 +7,10 @@ const MainAttraction = ({ mainAttraction }) => (
     <div>
       <img src={mainAttraction.imageUrl} alt="A fantastic attraction" />
     </div>
+    {mainAttraction.basicDescription}
     <div>
       {mainAttraction.name}
     </div>
-    {/* <div>
-      small description
-    </div> */}
     <div>
       {mainAttraction.ratings.avg}
       {' '}
@@ -24,9 +22,9 @@ const MainAttraction = ({ mainAttraction }) => (
     <div>
       {mainAttraction.price}
     </div>
-    <div>
+    <button type>
       more info
-    </div>
+    </button>
   </div>
 );
 
@@ -40,6 +38,8 @@ MainAttraction.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
+    distanceFrom: PropTypes.string,
+    basicDescription: PropTypes.string,
   }).isRequired,
 };
 

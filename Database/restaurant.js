@@ -12,6 +12,9 @@ const restaurantSchema = new mongoose.Schema({
     total: { type: Number },
   },
   imageUrl: String,
+  distanceFrom: String,
+  foodType: String,
+  price: Number,
   _id: {
     type: String,
     default() {
@@ -37,6 +40,9 @@ module.exports = {
       name: req.body.name,
       ratings: req.body.ratings,
       imageUrl: req.body.imageUrl,
+      distanceFrom: req.body.distanceFrom,
+      foodType: req.body.foodType,
+      price: req.body.price,
     };
     restaurant.create(obj, (err, result) => {
       if (err) { res.status(400).send(err); } else res.status(201).send(result);
@@ -49,6 +55,9 @@ module.exports = {
       name: req.body.name,
       ratings: req.body.ratings,
       imageUrl: req.body.imageUrl,
+      distanceFrom: req.body.distanceFrom,
+      foodType: req.body.foodType,
+      price: req.body.price,
     };
     restaurant.updateOne(id, obj, (err, result) => {
       if (err) { res.status(400).send(err); } else res.status(200).send(result);

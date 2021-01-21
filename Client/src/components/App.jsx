@@ -24,6 +24,7 @@ class App extends React.Component {
 
   getLocation() {
     return Axios.get('http://localhost:3000/api/location')
+    // Axios.get('/api/restaurant')
       .then((result) => {
         const { data } = result;
         this.setState({
@@ -35,6 +36,7 @@ class App extends React.Component {
 
   getRestaurants() {
     Axios.get('http://localhost:3000/api/restaurant')
+    // Axios.get('/api/restaurant')
       .then((result) => {
         const { data } = result;
         this.setState({
@@ -46,6 +48,7 @@ class App extends React.Component {
 
   getAttractions() {
     Axios.get('http://localhost:3000/api/attraction')
+    // Axios.get('/api/attraction')
       .then((result) => {
         this.setState({
           attractions: result.data,

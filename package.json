@@ -11,8 +11,8 @@
   },
   "scripts": {
     "test": "jest --verbose",
-    "test:coverage": "npx jest --coverage",
-    "test:watch": "jest --verbose --watch",
+    "test:coverage": "npx jest --coverage --runInBand --detectOpenHandles --verbose",
+    "test:watch": "jest --verbose --watch --runInBand --detectOpenHandles",
     "start": "npx nodemon Server/start.js",
     "build": "npx webpack --config webpack.config.js --watch",
     "hot": "webpack serve --open",

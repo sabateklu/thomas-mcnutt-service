@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Restaurant from './Restaurant';
 
-const RestaurantsList = ({ restaurants }) => (
+const Restaurants = ({ restaurants }) => (
   <div>
-    {console.log(restaurants)}
     <h3>6 other restaurants</h3>
     <h5>within 1 miles</h5>
     <div>
@@ -25,7 +24,7 @@ const RestaurantsList = ({ restaurants }) => (
   </div>
 );
 
-RestaurantsList.propTypes = {
+Restaurants.propTypes = {
   restaurants: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     ratings: PropTypes.shape({
@@ -33,7 +32,10 @@ RestaurantsList.propTypes = {
       total: PropTypes.number,
     }),
     imageUrl: PropTypes.string,
+    distanceFrom: PropTypes.string,
+    foodType: PropTypes.string,
+    price: PropTypes.number,
   })).isRequired,
 };
 
-export default RestaurantsList;
+export default Restaurants;
