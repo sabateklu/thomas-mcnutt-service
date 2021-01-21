@@ -39,7 +39,12 @@ module.exports = {
   create: (req, res) => {
     const obj = {
       name: req.body.name,
-      ratings: req.body.ratings,
+
+      ratings: {
+        avg: req.body.ratings.avg,
+        total: req.body.ratings.total,
+      },
+
       imageUrl: req.body.imageUrl,
       price: req.body.price,
       description: req.body.description,
@@ -55,7 +60,12 @@ module.exports = {
     const id = { _id: req.params.id };
     const obj = {
       name: req.body.name,
-      ratings: req.body.ratings,
+
+      ratings: {
+        avg: req.body.ratings.avg,
+        total: req.body.ratings.total,
+      },
+
       imageUrl: req.body.imageUrl,
       price: req.body.price,
       description: req.body.description,
