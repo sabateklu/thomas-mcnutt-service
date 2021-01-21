@@ -57,7 +57,7 @@ class App extends React.Component {
       .then(() => {
         const { attractions } = this.state;
         this.setState({
-          mainAttraction: attractions[0],
+          mainAttraction: attractions[3],
         });
       })
       .catch((err) => { console.log(err); });
