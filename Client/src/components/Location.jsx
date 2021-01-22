@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Icon } from '@iconify/react';
+import mapMarker from '@iconify-icons/oi/map-marker';
+import laptopIcon from '@iconify-icons/carbon/laptop';
+import phoneHandsetLine from '@iconify-icons/clarity/phone-handset-line';
+import emailIcon from '@iconify-icons/carbon/email';
 
 const Location = ({ location }) => (
   <div>
     <h2>Location</h2>
     <h3>Contact</h3>
     <p>
+      <Icon icon={mapMarker} />
       {location.address.city}
       {' '}
       {location.address.country}
@@ -15,9 +21,21 @@ const Location = ({ location }) => (
       {' '}
       {location.address.zip}
     </p>
-    <p>{location.website}</p>
-    <p>{location.phoneNum}</p>
-    <p>{location.email}</p>
+    <p>
+      <Icon icon={laptopIcon} />
+      {' '}
+      {location.website}
+    </p>
+    <p>
+      <Icon icon={phoneHandsetLine} />
+      {' '}
+      {location.phoneNum}
+    </p>
+    <p>
+      <Icon icon={emailIcon} />
+      {' '}
+      {location.email}
+    </p>
   </div>
 );
 

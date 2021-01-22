@@ -1,29 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import { StyledImg } from '../componentStyles';
 
 const Restaurant = ({ restaurant }) => (
-  <div>
-    <StyledImg variant="square" src={restaurant.imageUrl} alt="Tasty looking food" />
-    Name:
-    {' '}
-    {restaurant.name}
-    Avg Rating:
-    {' '}
-    {restaurant.ratings.avg}
-    total ratings:
-    {' '}
-    {restaurant.ratings.total}
-    Distance from:
-    {restaurant.distanceFrom}
-    miles
-    Food type:
-    {' '}
-    {restaurant.foodType}
-    Food Price/5
-    {' '}
-    {restaurant.price}
-  </div>
+  <Grid container spacing={1}>
+    <Grid item xs={5}>
+      <StyledImg variant="square" src={restaurant.imageUrl} alt="Tasty looking food" />
+    </Grid>
+    <Grid item xs={7}>
+      Name:
+      {' '}
+      {restaurant.name}
+      Avg Rating:
+      {' '}
+      {restaurant.ratings.avg}
+      total ratings:
+      {' '}
+      {restaurant.ratings.total}
+      Distance from:
+      {restaurant.distanceFrom}
+      miles
+      Food type:
+      {' '}
+      {restaurant.foodType}
+      Food Price/5
+      {' '}
+      {restaurant.price}
+    </Grid>
+  </Grid>
 );
 
 Restaurant.propTypes = {

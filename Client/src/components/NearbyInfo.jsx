@@ -15,8 +15,8 @@ const NearbyInfo = ({
         location={location}
       />
     </Grid>
+    <h2>Best Nearby</h2>
     <Grid item xs={3}>
-      <h2>Best Nearby</h2>
       <Restaurants
         restaurants={restaurants}
       />

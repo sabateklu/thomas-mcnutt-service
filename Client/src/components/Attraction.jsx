@@ -1,27 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import { StyledImg } from '../componentStyles';
 
 const Attraction = ({ attraction }) => (
-  <div>
-    <StyledImg variant="square" src={attraction.imageUrl} alt="A fun activity" />
-    name:
-    {' '}
-    {attraction.basicDescription}
-    {' '}
-    Ratings avg:
-    {' '}
-    {attraction.ratings.avg}
-    {' '}
-    Ratings total
-    {attraction.ratings.total}
-    {attraction.distanceFrom}
-    miles
-    {' $'}
-    {attraction.price}
-  </div>
+  <Grid container spacing={1}>
+    <Grid item xs={5}>
+      <StyledImg variant="square" src={attraction.imageUrl} alt="A fun activity" />
+    </Grid>
+    <Grid item xs={7}>
+      name:
+      {' '}
+      {attraction.basicDescription}
+      {' '}
+      Ratings avg:
+      {' '}
+      {attraction.ratings.avg}
+      {' '}
+      Ratings total
+      {attraction.ratings.total}
+      {attraction.distanceFrom}
+      miles
+      {' $'}
+      {attraction.price}
+    </Grid>
+  </Grid>
 );
-// style={{ height: 50, width: 50 }}
 
 Attraction.propTypes = {
   attraction: PropTypes.shape({
