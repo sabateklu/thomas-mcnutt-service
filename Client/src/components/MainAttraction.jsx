@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Image from 'material-ui-image';
+import { styled } from '@material-ui/core/styles';
+
+const StyledImg = styled(Image)({
+  height: '50px',
+  width: '50px',
+});
+
 const MainAttraction = ({ mainAttraction }) => (
   <div>
     <h2>Get to know the area</h2>
     <div>
-      <img src={mainAttraction.imageUrl} alt="A fantastic attraction" />
+      <StyledImg src={mainAttraction.imageUrl} alt="A fantastic attraction" />
     </div>
     {mainAttraction.basicDescription}
     <div>
@@ -22,9 +30,9 @@ const MainAttraction = ({ mainAttraction }) => (
     <div>
       {mainAttraction.price}
     </div>
-    <button type>
+    <div>
       more info
-    </button>
+    </div>
   </div>
 );
 

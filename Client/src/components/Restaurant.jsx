@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyledImg } from '../componentStyles';
 
 const Restaurant = ({ restaurant }) => (
   <div>
-    <img src={restaurant.imageUrl} alt="Tasty looking food" />
+    <StyledImg variant="square" src={restaurant.imageUrl} alt="Tasty looking food" />
     Name:
     {' '}
     {restaurant.name}

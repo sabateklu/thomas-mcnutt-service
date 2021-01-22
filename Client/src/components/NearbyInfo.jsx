@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import Location from './Location';
 import Restaurants from './Restaurants';
 import Attractions from './Attractions';
@@ -8,32 +9,29 @@ import MainAttraction from './MainAttraction';
 const NearbyInfo = ({
   location, restaurants, attractions, mainAttraction,
 }) => (
-  <div>
-    <div>
+  <Grid container spacing={3}>
+    <Grid item xs={2}>
       <Location
         location={location}
       />
-    </div>
-    <div className="restaurants-attractions">
-      Best Nearby
-      <div>
-        <Restaurants
-          restaurants={restaurants}
-        />
-      </div>
-      <div>
-        <Attractions
-          attractions={attractions}
-        />
-      </div>
-    </div>
-    <div className="main-attraction">
-      Get to know the area
+    </Grid>
+    <Grid item xs={3}>
+      <h2>Best Nearby</h2>
+      <Restaurants
+        restaurants={restaurants}
+      />
+    </Grid>
+    <Grid item xs={3}>
+      <Attractions
+        attractions={attractions}
+      />
+    </Grid>
+    <Grid item xs={3} className="main-attraction">
       <MainAttraction
         mainAttraction={mainAttraction}
       />
-    </div>
-  </div>
+    </Grid>
+  </Grid>
 );
 
 NearbyInfo.propTypes = {

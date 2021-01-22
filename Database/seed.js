@@ -55,7 +55,7 @@ const create100Restaurants = () => {
         avg: randomizer(5),
         total: randomizer(1000),
       },
-      imageUrl: `${Faker.image.food()}?random=${randomizer(1000)}`,
+      imageUrl: `${Faker.image.people()}?random=${randomizer(1000)}`,
       distanceFrom: `0.${randomizer(9)}`,
       foodType: foodTypes[randomizer(foodTypes.length)],
       price: randomizer(5),

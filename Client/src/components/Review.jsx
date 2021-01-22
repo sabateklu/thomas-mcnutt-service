@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Grid, Paper } from '@material-ui/core';
 
 const Review = ({ review }) => (
-  <div>
-    <p>{review}</p>
-  </div>
+  <Grid item xs={12}>
+    <Paper>{review}</Paper>
+  </Grid>
 );
 
 Review.propTypes = {

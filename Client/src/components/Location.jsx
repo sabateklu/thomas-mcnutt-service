@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 const Location = ({ location }) => (
   <div>
+    <h2>Location</h2>
+    <h3>Contact</h3>
     <p>
       {location.address.city}
       {' '}
@@ -36,7 +38,7 @@ Location.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
-    reviews: PropTypes.arrayOf(PropTypes.String),
+    reviews: PropTypes.arrayOf(PropTypes.string),
     website: PropTypes.string,
     phoneNum: PropTypes.string,
     email: PropTypes.string,

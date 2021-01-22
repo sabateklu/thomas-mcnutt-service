@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
-import Reviews from './ReviewsList';
+import { StyledDoc } from '../componentStyles';
+import Reviews from './Reviews';
 import Map from './Map';
 import NearbyInfo from './NearbyInfo';
 
@@ -68,13 +69,17 @@ class App extends React.Component {
       location, restaurants, mainAttraction, attractions,
     } = this.state;
     return (
-      <div>
+      <StyledDoc>
         { location
             && (
               <div>
                 <div className="reviews">
+                  What travelers are saying
+                  {location.ratings.avg}
+                  {location.ratings.total}
                   <Reviews
                     reviews={location.reviews}
+                    // ratings={location.ratings}
                   />
                 </div>
                 <div className="map">
@@ -94,7 +99,8 @@ class App extends React.Component {
             />
           </div>
         ) }
-      </div>
+        API
+      </StyledDoc>
     );
   }
 }

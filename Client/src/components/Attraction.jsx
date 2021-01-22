@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyledImg } from '../componentStyles';
 
 const Attraction = ({ attraction }) => (
   <div>
-    <img src={attraction.imageUrl} alt="A fun activity" />
+    <StyledImg variant="square" src={attraction.imageUrl} alt="A fun activity" />
     name:
     {' '}
-    {attraction.name}
+    {attraction.basicDescription}
     {' '}
     Ratings avg:
     {' '}
@@ -20,6 +21,7 @@ const Attraction = ({ attraction }) => (
     {attraction.price}
   </div>
 );
+// style={{ height: 50, width: 50 }}
 
 Attraction.propTypes = {
   attraction: PropTypes.shape({
