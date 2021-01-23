@@ -55,17 +55,13 @@ const create100Restaurants = () => {
         avg: randomizer(5),
         total: randomizer(1000),
       },
-      imageUrl: Faker.image.imageUrl(),
+      imageUrl: `${Faker.image.people()}?random=${randomizer(1000)}`,
       distanceFrom: `0.${randomizer(9)}`,
       foodType: foodTypes[randomizer(foodTypes.length)],
       price: randomizer(5),
     });
   }
 };
-
-// distanceFrom: Number,
-// foodType: String,
-// Price: Number,
 
 const sampleAttractions = [];
 const create100Attractions = () => {
@@ -76,7 +72,7 @@ const create100Attractions = () => {
         avg: randomizer(5),
         total: randomizer(1000),
       },
-      imageUrl: Faker.image.imageUrl(),
+      imageUrl: `${Faker.image.city()}?random=${randomizer(1000)}`,
       description: Faker.lorem.paragraph(),
       price: randomizer(200, 0),
       distanceFrom: `0.${randomizer(9)}`,

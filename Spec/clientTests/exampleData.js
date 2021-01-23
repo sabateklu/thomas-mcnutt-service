@@ -16,6 +16,11 @@ const exampleLocation = {
   _id: '6008802b70f2526f41bace16',
   Name: 'Hispania',
   __v: 0,
+  reviews: [
+    'Eius iure culpa tenetur totam molestiae magnam est incidunt ad. Quasi sed eligendi dolor. Et maxime aut labore necessitatibus ut laudantium reiciendis aspernatur.',
+    'Corrupti nisi quis unde. Quaerat voluptas ut quasi. Voluptates sunt voluptatibus aut quo fugit neque iure eum ut. Et aliquid nisi et velit deleniti esse. Accusamus nisi quisquam.',
+    'Laborum ea voluptas alias fugit incidunt. Excepturi est nesciunt dolore qui consequatur facilis. Consequuntur facilis architecto ducimus ut repudiandae. Aliquid eum ut atque et laborum tempore eligendi. Est consequuntur et velit. Qui velit maxime consequatur reiciendis incidunt.',
+  ],
 };
 
 const exampleAttractions = [

@@ -17,22 +17,31 @@ describe('Turning Server on for tests', () => {
     // Location route tests
 
     const locationExample = {
-      Name: 'London',
       coords: {
-        lat: '51.507',
-        long: '0.127',
+        lat: 51.455,
+        long: -2.596,
       },
       ratings: {
-        avg: '4.5',
-        total: '745',
+        avg: 1,
+        total: 227,
       },
       address: {
-        street: '88 Station Road',
-        city: 'London',
+        street: 'Emmy Summit',
+        city: 'Bristol',
         country: 'England',
-        zip: 'EC965',
+        zip: '44637',
       },
-      _id: '5555',
+      reviews: [
+        'Neque rerum praesentium. Qui sit ducimus nulla accusantium magni voluptatibus harum provident est. Quaerat et facere cumque vitae animi adipisci aut. Id quia voluptatum nihil quia accusantium perspiciatis ex. Earum enim molestiae eligendi quidem numquam hic vel sed amet. Incidunt tempore quod vero tempore.',
+        'Quis non aut et quam in architecto qui placeat. Harum exercitationem consequatur voluptas voluptate rem. Quo nihil voluptate occaecati officiis suscipit consectetur voluptate dolores. Dolorem suscipit dolore facere.',
+        'Inventore suscipit veritatis ipsa autem illo. Sunt corrupti et aliquid. Nisi dolorum omnis eaque nisi ullam. Velit quo consequatur qui saepe. Corporis libero sapiente eos et doloribus laboriosam iusto beatae quibusdam. Deleniti est laborum.',
+      ],
+      Name: 'Bristol',
+      website: 'www.Bristol.gov',
+      phoneNum: '211.205.9777 x313',
+      email: 'Bristol@gmail.com',
+      __v: 0,
+      _id: 5555,
     };
 
     test('Location should send a 200 response code for the get method', (done) => request(server)
@@ -59,15 +68,18 @@ describe('Turning Server on for tests', () => {
   describe('Testing Attraction Routes', () => {
     // Attraction route tests
     const attractionExample = {
-      name: 'skydiving',
+      _id: 6666,
       ratings: {
-        avg: 3,
-        total: 42,
+        avg: 2,
+        total: 622,
       },
-      imageUrl: 'http://placeimg.com/640/480',
-      description: 'This is a paragraph!',
-      price: '200',
-      _id: '6666',
+      name: 'Abshire - Weimann',
+      imageUrl: 'http://placeimg.com/640/480/city?random=548',
+      description: 'Voluptate assumenda asperiores laudantium commodi consequatur occaecati. Officia dicta suscipit nisi. Sapiente magni ad quisquam necessitatibus quia reprehenderit accusantium. Ad dolorum doloribus.',
+      price: 77,
+      distanceFrom: '0.6',
+      basicDescription: 'Rock Massages',
+      __v: 0,
     };
 
     test('Attraction should send a 200 response code for the get method', (done) => request(server)

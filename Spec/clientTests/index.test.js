@@ -3,16 +3,57 @@ import { shallow } from 'enzyme';
 import App from '../../Client/src/components/App';
 import Attraction from '../../Client/src/components/Attraction';
 import Attractions from '../../Client/src/components/Attractions';
+import BestNearby from '../../Client/src/components/BestNearby';
 import Location from '../../Client/src/components/Location';
+import MainAttraction from '../../Client/src/components/MainAttraction';
 import Map from '../../Client/src/components/Map';
+import NearbyInfo from '../../Client/src/components/NearbyInfo';
 import Restaurant from '../../Client/src/components/Restaurant';
 import Restaurants from '../../Client/src/components/Restaurants';
-import NearbyInfo from '../../Client/src/components/NearbyInfo';
+import Review from '../../Client/src/components/Review';
+import Reviews from '../../Client/src/components/Reviews';
 import { exampleLocation, exampleAttractions, exampleRestaurants } from './exampleData';
 
 describe('App component', () => {
   test('Renders', () => {
     const wrapper = shallow(<App />);
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe('Reviews component', () => {
+  test('Renders', () => {
+    const wrapper = shallow(<Reviews
+      reviews={exampleLocation.reviews}
+    />);
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe('Review component', () => {
+  test('Renders', () => {
+    const wrapper = shallow(<Review
+      review={exampleLocation.reviews[0]}
+    />);
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe('MainAttraction component', () => {
+  test('Renders', () => {
+    const wrapper = shallow(<MainAttraction
+      mainAttraction={exampleAttractions[0]}
+    />);
+    expect(wrapper.exists()).toBe(true);
+  });
+});
+
+describe('BestNearby component', () => {
+  test('Renders', () => {
+    const wrapper = shallow(<BestNearby
+      attractions={exampleAttractions}
+      restaurants={exampleRestaurants}
+    />);
     expect(wrapper.exists()).toBe(true);
   });
 });

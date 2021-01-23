@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
 import Restaurant from './Restaurant';
 
 const Restaurants = ({ restaurants }) => (
   <div>
-    <h3>6 other restaurants</h3>
-    <h5>within 1 miles</h5>
+    <Grid container spacing={0}>
+      <Grid item xs={2}>
+        <h1 style={{ color: 'red' }}>{restaurants.length}</h1>
+      </Grid>
+      <Grid item xs={10}>
+        <h3 style={{ color: 'red' }}>Restaurants</h3>
+        <h4>Within 1 mile</h4>
+      </Grid>
+    </Grid>
     <div>
       <Restaurant
         restaurant={restaurants[0]}

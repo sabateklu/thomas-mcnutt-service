@@ -1,6 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
-import Reviews from './ReviewsList';
+import Rating from '@material-ui/lab/Rating';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import Grid from '@material-ui/core/Grid';
+import {
+  StyledDoc, StyledRoot, StyledWhatTravellers, RatingBubbles, ReviewStayRight,
+} from '../componentStyles';
+import Reviews from './Reviews';
 import Map from './Map';
 import NearbyInfo from './NearbyInfo';
 
@@ -23,7 +29,7 @@ class App extends React.Component {
   }
 
   getLocation() {
-    return Axios.get('http://localhost:3000/api/location')
+    Axios.get('http://localhost:3000/api/location')
     // Axios.get('/api/restaurant')
       .then((result) => {
         const { data } = result;
@@ -57,7 +63,7 @@ class App extends React.Component {
       .then(() => {
         const { attractions } = this.state;
         this.setState({
-          mainAttraction: attractions[0],
+          mainAttraction: attractions[3],
         });
       })
       .catch((err) => { console.log(err); });
@@ -68,13 +74,43 @@ class App extends React.Component {
       location, restaurants, mainAttraction, attractions,
     } = this.state;
     return (
-      <div>
-        { location
+      <StyledRoot>
+        <StyledDoc>
+          { location
             && (
               <div>
                 <div className="reviews">
+                  <Grid container spacing={0}>
+                    <StyledWhatTravellers item xs={3}>
+                      What travelers are saying about
+                      {' '}
+                      {location.Name}
+                    </StyledWhatTravellers>
+                    <RatingBubbles item xs={1}>
+                      <h1 style={{ float: 'right', top: '-50' }}>
+                        {location.ratings.avg}
+                      </h1>
+                    </RatingBubbles>
+                    <RatingBubbles item xs={1}>
+                      <Rating
+                        style={{ color: 'rgb(52, 224, 161' }}
+                        name="customized-icons"
+                        value={location.ratings.avg}
+                        precision={0.5}
+                        size="small"
+                        icon={<FiberManualRecordIcon />}
+                        getLabelText={() => `${location.ratings.total} reviews`}
+                      />
+                    </RatingBubbles>
+                    <ReviewStayRight item xs={7}>
+                      <h5 style={{ float: 'right' }}>
+                        {`Read all ${location.ratings.total} reviews`}
+                      </h5>
+                    </ReviewStayRight>
+                  </Grid>
                   <Reviews
                     reviews={location.reviews}
+                    // ratings={location.ratings}
                   />
                 </div>
                 <div className="map">
@@ -84,7 +120,7 @@ class App extends React.Component {
                 </div>
               </div>
             ) }
-        {location && restaurants && mainAttraction && attractions && (
+          {location && restaurants && mainAttraction && attractions && (
           <div className="information-panel">
             <NearbyInfo
               location={location}
@@ -93,8 +129,9 @@ class App extends React.Component {
               attractions={attractions}
             />
           </div>
-        ) }
-      </div>
+          ) }
+        </StyledDoc>
+      </StyledRoot>
     );
   }
 }

@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MapMarker from '@material-ui/icons/Room';
+import ComputerIcon from '@material-ui/icons/Computer';
+import PhoneIcon from '@material-ui/icons/Phone';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 const Location = ({ location }) => (
   <div>
+    <h2>Location</h2>
+    <h3>Contact</h3>
     <p>
+      <MapMarker />
       {location.address.city}
       {' '}
       {location.address.country}
@@ -13,9 +20,21 @@ const Location = ({ location }) => (
       {' '}
       {location.address.zip}
     </p>
-    <p>{location.website}</p>
-    <p>{location.phoneNum}</p>
-    <p>{location.email}</p>
+    <p>
+      <ComputerIcon />
+      {' '}
+      {location.website}
+    </p>
+    <p>
+      <PhoneIcon />
+      {' '}
+      {location.phoneNum}
+    </p>
+    <p>
+      <MailOutlineIcon />
+      {' '}
+      {location.email}
+    </p>
   </div>
 );
 
@@ -36,7 +55,7 @@ Location.propTypes = {
       avg: PropTypes.number,
       total: PropTypes.number,
     }),
-    reviews: PropTypes.arrayOf(PropTypes.String),
+    reviews: PropTypes.arrayOf(PropTypes.string),
     website: PropTypes.string,
     phoneNum: PropTypes.string,
     email: PropTypes.string,
