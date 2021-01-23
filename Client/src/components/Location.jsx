@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '@iconify/react';
-import mapMarker from '@iconify-icons/oi/map-marker';
-import laptopIcon from '@iconify-icons/carbon/laptop';
-import phoneHandsetLine from '@iconify-icons/clarity/phone-handset-line';
-import emailIcon from '@iconify-icons/carbon/email';
+import MapMarker from '@material-ui/icons/Room';
+import ComputerIcon from '@material-ui/icons/Computer';
+import PhoneIcon from '@material-ui/icons/Phone';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 const Location = ({ location }) => (
   <div>
     <h2>Location</h2>
     <h3>Contact</h3>
     <p>
-      <Icon icon={mapMarker} />
+      <MapMarker />
       {location.address.city}
       {' '}
       {location.address.country}
@@ -22,17 +21,17 @@ const Location = ({ location }) => (
       {location.address.zip}
     </p>
     <p>
-      <Icon icon={laptopIcon} />
+      <ComputerIcon />
       {' '}
       {location.website}
     </p>
     <p>
-      <Icon icon={phoneHandsetLine} />
+      <PhoneIcon />
       {' '}
       {location.phoneNum}
     </p>
     <p>
-      <Icon icon={emailIcon} />
+      <MailOutlineIcon />
       {' '}
       {location.email}
     </p>

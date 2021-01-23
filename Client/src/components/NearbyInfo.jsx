@@ -2,31 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Location from './Location';
-import Restaurants from './Restaurants';
-import Attractions from './Attractions';
+import BestNearby from './BestNearby';
 import MainAttraction from './MainAttraction';
 
 const NearbyInfo = ({
   location, restaurants, attractions, mainAttraction,
 }) => (
-  <Grid container spacing={3}>
+  <Grid container spacing={1}>
     <Grid item xs={2}>
       <Location
         location={location}
       />
     </Grid>
-    <h2>Best Nearby</h2>
-    <Grid item xs={3}>
-      <Restaurants
+    <Grid item xs={6}>
+      <BestNearby
+        attractions={attractions}
         restaurants={restaurants}
       />
     </Grid>
-    <Grid item xs={3}>
-      <Attractions
-        attractions={attractions}
-      />
-    </Grid>
-    <Grid item xs={3} className="main-attraction">
+    <Grid item xs={4} className="main-attraction">
       <MainAttraction
         mainAttraction={mainAttraction}
       />
